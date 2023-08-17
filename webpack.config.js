@@ -6,7 +6,6 @@ module.exports = async (env,options) => {
   const config = {
   entry: {
     taskpane: ["./src/index.js"],
-    customlib: ["./src/foo.js"]
   },
   output: {
     filename: (pathData) => (pathData.chunk.name === "commands" ? `[name].js` : `[name][chunkhash].js`),
