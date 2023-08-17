@@ -1,1 +1,0 @@
-(()=>{"use strict";console.log("calling bar"),console.log("foo calling")})();

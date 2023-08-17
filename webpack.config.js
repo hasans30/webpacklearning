@@ -4,14 +4,18 @@ const HtmlWebpackPlugin = require("html-webpack-plugin");
 
 module.exports = async (env,options) => {
   const config = {
-  entry: './src/index.js',
+  entry: {
+    taskpane: ["./src/index.js"],
+    customlib: ["./src/foo.js"]
+  },
   output: {
-    filename: 'main.js',
+    filename: (pathData) => (pathData.chunk.name === "commands" ? `[name].js` : `[name][chunkhash].js`),
     path: path.resolve(__dirname, 'dist'),
   },
   plugins: [new HtmlWebpackPlugin({
-    filename: 'taskpane.html',
+    filename: 'index.html',
     template: 'src/index.html',
+    chunks:["taskpane"]
   }
   )],
  
