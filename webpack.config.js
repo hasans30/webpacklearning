@@ -20,9 +20,14 @@ module.exports = async (env,options) => {
   )],
 
     devServer: {
+      hot: true,
     static: {
       directory: path.join(__dirname, 'public'),
+      publicPath: '/myfiles',
     },
+    allowedHosts: [
+      'host.com'
+    ],
     compress: true,
     port: 9000,
   },
