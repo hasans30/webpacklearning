@@ -4,6 +4,7 @@ const HtmlWebpackPlugin = require("html-webpack-plugin");
 
 module.exports = async (env,options) => {
   const config = {
+  // mode: 'development',
   entry: {
     taskpane: ["./src/index.js"],
   },
@@ -17,6 +18,14 @@ module.exports = async (env,options) => {
     chunks:["taskpane"]
   }
   )],
+
+    devServer: {
+    static: {
+      directory: path.join(__dirname, 'public'),
+    },
+    compress: true,
+    port: 9000,
+  },
  
   }
 
